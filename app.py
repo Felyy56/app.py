@@ -6,6 +6,8 @@ app = Flask(__name__)
 
 # Lägg till din lokala utvecklingsserver i CORS
 CORS(app, origins=[
+    "https://vrextreme.se",
+    "http://vrextreme.se",
     "http://localhost:3000", 
     "https://localhost:3000",
     "http://127.0.0.1:5500",  # ← LÄGG TILL DENNA
