@@ -3,8 +3,17 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-# Tillåt CORS från alla domäner (eller specifika domäner)
-CORS(app, origins=["https://visartiden.com", "http://localhost:3000", "https://localhost:3000"])
+
+# Lägg till din lokala utvecklingsserver i CORS
+CORS(app, origins=[
+    "http://localhost:3000", 
+    "https://localhost:3000",
+    "http://127.0.0.1:5500",  # ← LÄGG TILL DENNA
+    "http://localhost:5500",  # ← OCH DENNA FÖR SÄKERHETS SKULL
+    "http://localhost:8080",  # ← VANLIG UTVECKLINGSPORT
+    "http://127.0.0.1:8080"   # ← OCH DENNA
+    "http://127.0.0.1:8080"   # ← OCH DENNA
+])
 
 latest_booking = None
 
